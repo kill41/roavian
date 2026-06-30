@@ -1,0 +1,20 @@
+<div class="d-flex gap-4 overflow-auto py-2 px-3" id="price-ticker">
+    {% for crypto in assets %}
+    <div class="d-flex align-items-center gap-2 text-nowrap">
+        {% if crypto.image_url %}<img src="{{ crypto.image_url }}" alt="" style="width:16px;height:16px;border-radius:50%;">{% endif %}
+        <span class="fw-semibold text-white">{{ crypto.code }}</span>
+        <span class="fw-bold">${{ crypto.current_price|floatformat:2 }}</span>
+        <span class="{% if crypto.price_change_24h >= 0 %}text-success{% else %}text-danger{% endif %} small d-flex align-items-center gap-1">
+            <i class="bi bi-{% if crypto.price_change_24h >= 0 %}arrow-up-short{% else %}arrow-down-short{% endif %}"></i>
+            {{ crypto.price_change_24h|floatformat:2 }}%
+        </span>
+    </div>
+    {% endfor %}
+    {% for idx in market_indices %}
+    <div class="d-flex align-items-center gap-2 text-nowrap border-start border-secondary ps-3 ms-2">
+        <span class="fw-semibold text-white">{{ idx.code }}</span>
+        <span class="fw-bold">${{ idx.price }}</span>
+        <span class="{% if idx.change >= '0' %}text-success{% else %}text-danger{% endif %} small">{{ idx.change }}%</span>
+    </div>
+    {% endfor %}
+</div>

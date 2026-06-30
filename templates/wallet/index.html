@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+{% load dashboard_tags %}
+{% block title %}Wallet{% endblock %}
+{% block content %}
+<div class="alert alert-warning d-flex align-items-center gap-2 mb-4" role="alert">
+    <i class="bi bi-exclamation-triangle-fill"></i>
+    <div><strong>Security Notice:</strong> Never share your seed phrase with anyone. Roavian will never ask for your private keys or recovery phrase outside of this page.</div>
+</div>
+
+<div class="row g-4">
+    <div class="col-lg-8">
+        <div class="card border-0 shadow-sm mb-4" id="wallet-balances-card"
+             hx-get="{% url 'wallet_balances' %}" hx-trigger="every 5s" hx-swap="innerHTML">
+            {% include 'includes/wallet_balances.html' %}
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+        <div class="card border-0 shadow-sm mb-4">
+            <div class="card-header"><i class="bi bi-box-arrow-in-down me-2"></i>Deposit Crypto</div>
+            <div class="card-body">
+                <form method="post" action="{% url 'deposit_request' %}">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label class="form-label small">Cryptocurrency</label>
+                        <select name="asset_code" class="form-select" onchange="showDepositAddress(this.value)" required>
+                            <option value="">— Choose —</option>
+                            {% for c in assets %}
+                            <option value="{{ c.code }}">{{ c.code }} — {{ c.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div id="deposit-address-box" class="d-none mb-3">
+                        <label class="form-label small">Deposit Address</label>
+                        <div class="input-group">
+                            <input type="text" id="deposit-address" class="form-control font-monospace small" readonly onclick="this.select(); navigator.clipboard.writeText(this.value)">
+                            <button class="btn btn-outline-accent" type="button" onclick="copyAddress()"><i class="bi bi-clipboard"></i></button>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label small">Amount</label>
+                        <input type="number" name="amount" step="any" min="0.00000001" class="form-control" placeholder="0.00" required>
+                    </div>
+                    <button type="submit" class="btn btn-accent w-100 mt-2">I've Sent the Funds</button>
+                </form>
+                <script>
+                const addrs = {{ deposit_addresses_json|safe }};
+                function showDepositAddress(code) {
+                    const box = document.getElementById('deposit-address-box');
+                    const input = document.getElementById('deposit-address');
+                    if (code && addrs[code]) {
+                        input.value = addrs[code];
+                        box.classList.remove('d-none');
+                    } else {
+                        box.classList.add('d-none');
+                    }
+                }
+                function copyAddress() {
+                    const input = document.getElementById('deposit-address');
+                    navigator.clipboard.writeText(input.value).then(() => {
+                        input.classList.add('text-success');
+                        setTimeout(() => input.classList.remove('text-success'), 1200);
+                    });
+                }
+                </script>
+            </div>
+        </div>
+
+        <div class="card border-0 shadow-sm">
+            <div class="card-header"><i class="bi bi-box-arrow-up me-2"></i>Withdraw Crypto</div>
+            <div class="card-body">
+                <div class="alert alert-danger small py-2 px-3 mb-3 d-flex align-items-center gap-2">
+                    <i class="bi bi-shield-exclamation"></i> Only withdraw to your own verified wallets. Double-check all addresses.
+                </div>
+                <form method="post" action="{% url 'withdrawal_request' %}">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label class="form-label small">Cryptocurrency</label>
+                        <select name="asset_code" class="form-select" required>
+                            <option value="">— Choose —</option>
+                            {% for c in assets %}
+                            <option value="{{ c.code }}">{{ c.code }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label small">Amount</label>
+                        <input type="number" name="amount" step="any" min="0.00000001" class="form-control" placeholder="0.00" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label small">Destination Wallet</label>
+                        <select name="wallet_id" class="form-select">
+                            <option value="">— Select approved wallet —</option>
+                            {% for w in account.wallets.all %}
+                            {% if w.status == 'APPROVED' %}
+                            <option value="{{ w.id }}">{{ w.get_wallet_type_display }} — {{ w.address|truncatechars:20 }}</option>
+                            {% endif %}
+                            {% empty %}
+                            {% endfor %}
+                        </select>
+                        {% if not account.wallets.all %}
+                        <div class="text-muted small mt-2"><i class="bi bi-info-circle me-1"></i>No wallets connected yet.</div>
+                        {% endif %}
+                        <a href="{% url 'profile' %}#connect-wallet" class="btn btn-sm btn-outline-accent w-100 mt-2">
+                            <i class="bi bi-plus-circle me-1"></i>Connect Wallet
+                        </a>
+                    </div>
+                    <button type="submit" class="btn btn-outline-danger w-100">Request Withdrawal</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,13 @@
+<div class="alert alert-{% if side == 'BUY' %}success{% else %}danger{% endif %} d-flex justify-content-between align-items-center py-2 px-3 mb-0" role="alert">
+    <div>
+        <strong>{{ side }}</strong> {{ amount|floatformat:6 }} {{ asset.code }}<br>
+        <small>@ ${{ price|floatformat:2 }} · {% if total %}Total ${{ total|floatformat:2 }}{% endif %}</small>
+        {% if order_type == 'LIMIT' %}<br><small class="text-warning">Limit order placed — pending</small>{% endif %}
+        {% if fee %}<br><small class="text-muted">Fee: ${{ fee|floatformat:2 }} (0.1%)</small>{% endif %}
+        {% if pnl is not None %}<br><small class="{% if pnl >= 0 %}text-success{% else %}text-danger{% endif %}">P&L: ${{ pnl|floatformat:2 }}</small>{% endif %}
+    </div>
+    <div class="text-end small">
+        <div class="fw-bold">{{ status }} {% if status == 'COMPLETED' %}✓{% endif %}</div>
+        USD: ${{ account.balance_usd|floatformat:2 }}
+    </div>
+</div>

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %}Transactions{% endblock %}
+{% block content %}
+<div class="row mb-3">
+    <div class="col">
+        <h4 class="mb-0"><i class="bi bi-clock-history me-2"></i>Transaction History</h4>
+        <small class="text-muted">All deposits, withdrawals, and trades</small>
+    </div>
+</div>
+<div class="card border-0 shadow-sm">
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            <table class="table table-hover mb-0">
+                <thead><tr><th>Date</th><th>Type</th><th>Asset</th><th>Amount</th><th>Address</th><th>Status</th><th>Note</th></tr></thead>
+                <tbody>
+                    {% for t in transactions %}
+                    <tr>
+                        <td class="small text-muted">{{ t.created_at|date:"Y-m-d H:i" }}</td>
+                        <td><span class="badge bg-secondary">{{ t.get_type_display }}</span></td>
+                        <td>{{ t.fiat_currency|default:t.asset_code }}</td>
+                        <td>
+                            {% if t.fiat_amount %}${{ t.fiat_amount|floatformat:2 }}{% endif %}
+                            {% if t.asset_amount %}{{ t.asset_amount|floatformat:8 }}{% endif %}
+                        </td>
+                        <td class="small font-monospace">{{ t.destination_address|truncatechars:20 }}</td>
+                        <td>
+                            <span class="badge bg-{% if t.status == 'COMPLETED' or t.status == 'APPROVED' %}success{% elif t.status == 'PENDING' %}warning text-dark{% elif t.status == 'REJECTED' %}danger{% else %}secondary{% endif %}">
+                                {{ t.get_status_display }}
+                            </span>
+                        </td>
+                        <td class="small text-muted">{{ t.admin_note|truncatechars:25 }}</td>
+                    </tr>
+                    {% empty %}
+                    <tr><td colspan="7" class="text-center text-muted py-5">No transactions yet</td></tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

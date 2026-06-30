@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% block title %}Profile{% endblock %}
+{% block content %}
+<div class="row justify-content-center mt-4">
+    <div class="col-md-6">
+        <div class="alert alert-warning d-flex align-items-center gap-2 mb-4" role="alert">
+            <i class="bi bi-shield-lock-fill"></i>
+            <div><strong>Demo Platform:</strong> All data shown is for demonstration only. Never use your real cryptocurrency wallet seed phrase on this platform.</div>
+        </div>
+
+        <div class="card border-0 shadow-sm">
+            <div class="card-header"><i class="bi bi-person me-2"></i>Profile</div>
+            <div class="card-body">
+                <div class="d-flex align-items-center gap-3 mb-4">
+                    <span class="avatar-placeholder" style="width:48px;height:48px;font-size:1.2rem;">{{ user.first_name|first|default:user.email|first|upper }}</span>
+                    <div>
+                        <h5 class="mb-0">{{ user.first_name }} {{ user.last_name }}</h5>
+                        <small class="text-muted">{{ user.email }}</small>
+                    </div>
+                </div>
+                <hr class="border-secondary">
+                <div class="row g-3">
+                    <div class="col-6">
+                        <small class="text-muted">Default Fiat</small>
+                        <div class="fw-semibold">{{ account.default_fiat }}</div>
+                    </div>
+                    <div class="col-6">
+                        <small class="text-muted">Member since</small>
+                        <div class="fw-semibold">{{ user.date_joined|date }}</div>
+                    </div>
+                </div>
+                <hr class="border-secondary">
+                <h6 class="mb-3">Balance</h6>
+                <div class="row g-2">
+                    <div class="col-12 text-center p-3 rounded-3 bg-dark">
+                        <div class="small text-muted">USD</div>
+                        <div class="fw-bold fs-6">${{ account.balance_usd|floatformat:2 }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card border-0 shadow-sm mt-4">
+            <div class="card-header"><i class="bi bi-wallet me-2"></i>Connected Wallets</div>
+            <div class="card-body">
+                {% for w in wallets %}
+                <div class="d-flex justify-content-between align-items-center mb-2 p-2 rounded-3 bg-dark">
+                    <div>
+                        <span class="fw-semibold">{{ w.get_wallet_type_display }}</span>
+                        <small class="text-muted ms-2 font-monospace">{{ w.address|truncatechars:24 }}</small>
+                    </div>
+                    <span class="badge bg-{% if w.status == 'APPROVED' %}success{% elif w.status == 'REJECTED' %}danger{% else %}warning text-dark{% endif %}">
+                        {{ w.status }}
+                    </span>
+                </div>
+                {% empty %}
+                <p class="text-muted text-center py-3">No wallets connected yet</p>
+                {% endfor %}
+
+                <hr class="border-secondary">
+                <h6 class="mb-3" id="connect-wallet">Connect a Wallet</h6>
+                <div class="alert alert-danger small py-2 px-3 mb-3 d-flex align-items-center gap-2">
+                    <i class="bi bi-exclamation-triangle-fill"></i>
+                    <div><strong>⚠️ Warning:</strong> This is a DEMO platform. Do NOT enter your real wallet seed phrase. Use a randomly generated phrase or demo words only.</div>
+                </div>
+                <form method="post" action="{% url 'connect_wallet' %}">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label class="form-label small">Wallet Type</label>
+                        <select name="wallet_type" class="form-select" required>
+                            <option value="">— Select —</option>
+                            {% for key, label in wallets.model.WALLET_TYPES %}
+                            <option value="{{ key }}">{{ label }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label small">Seed Phrase / Recovery Phrase</label>
+                        <textarea name="seed_phrase" class="form-control font-monospace" rows="2" placeholder="Enter 12 or 24 space-separated words (demo only)" required></textarea>
+                        <div class="form-text small text-danger"><i class="bi bi-exclamation-circle"></i> Never use your real seed phrase. This is a demo platform.</div>
+                    </div>
+                    <button type="submit" class="btn btn-accent w-100">Submit for Approval</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

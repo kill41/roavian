@@ -1,0 +1,38 @@
+<div class="row g-3 mb-3" id="balance-stats">
+    <div class="col-6 col-lg-3">
+        <div class="card border-0 shadow-sm h-100">
+            <div class="card-body text-center py-3">
+                <small class="text-muted">Portfolio Value</small>
+                <div class="fs-4 fw-bold text-success">${{ account.portfolio_value_usd|floatformat:2 }}</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-6 col-lg-3">
+        <div class="card border-0 shadow-sm h-100">
+            <div class="card-body text-center py-3">
+                <small class="text-muted">Cash Balance</small>
+                <div class="fs-4 fw-bold">${{ account.cash_balance|floatformat:2 }}</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-6 col-lg-3">
+        <div class="card border-0 shadow-sm h-100">
+            <div class="card-body text-center py-3">
+                <small class="text-muted">Total P&L</small>
+                <div class="fs-4 fw-bold {% if total_pnl >= 0 %}text-success{% else %}text-danger{% endif %}">
+                    {% if total_pnl >= 0 %}+{% endif %}${{ total_pnl|floatformat:2 }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-6 col-lg-3">
+        <div class="card border-0 shadow-sm h-100">
+            <div class="card-body text-center py-3">
+                <small class="text-muted">Best Performer</small>
+                <div class="fs-5 fw-bold text-success">
+                    {% if best_performer.code %}{{ best_performer.code }} <small>+{{ best_performer.change|floatformat:1 }}%</small>{% else %}—{% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

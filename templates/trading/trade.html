@@ -1,0 +1,215 @@
+{% extends 'base.html' %}
+{% load dashboard_tags %}
+{% block title %}Trade {{ asset.code }} — Roavian{% endblock %}
+{% block extra_head %}
+<script src="https://unpkg.com/lightweight-charts@4.2.1/dist/lightweight-charts.standalone.production.js"></script>
+{% endblock %}
+{% block content %}
+<div class="row g-3">
+    <div class="col-xl-9">
+        <div class="card border-0 shadow-sm">
+            <div class="card-header d-flex justify-content-between align-items-center flex-wrap gap-2">
+                <div>
+                    <span class="fw-bold fs-5">{{ asset.code }}/USD</span>
+                    <span class="text-muted ms-2">{{ asset.name }}</span>
+                </div>
+                <div class="d-flex align-items-center gap-3">
+                    <div class="text-end">
+                        <div class="fs-4 fw-bold {% if asset.price_change_24h >= 0 %}text-success{% else %}text-danger{% endif %}" id="live-price">
+                            ${{ asset.current_price|floatformat:2 }}
+                        </div>
+                        <small class="{% if asset.price_change_24h >= 0 %}text-success{% else %}text-danger{% endif %}">
+                            <i class="bi bi-{% if asset.price_change_24h >= 0 %}arrow-up{% else %}arrow-down{% endif %}"></i>
+                            {{ asset.price_change_24h|floatformat:2 }}%
+                        </small>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body p-2">
+                <div id="chart-container" style="height:460px; width:100%;"></div>
+                <div class="d-flex gap-2 mt-2 flex-wrap">
+                    <button class="btn btn-sm btn-outline-accent chart-range active" data-days="1">1D</button>
+                    <button class="btn btn-sm btn-outline-accent chart-range" data-days="7">7D</button>
+                    <button class="btn btn-sm btn-outline-accent chart-range" data-days="30">1M</button>
+                    <button class="btn btn-sm btn-outline-accent chart-range" data-days="90">3M</button>
+                    <span class="ms-auto text-muted small align-self-center" id="chart-status">Candlestick</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-3 mt-1">
+            <div class="col-md-4 col-6">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body text-center py-3">
+                        <small class="text-muted">24h Change</small>
+                        <div class="fw-bold fs-6 {% if asset.price_change_24h >= 0 %}text-success{% else %}text-danger{% endif %}">
+                            {{ asset.price_change_24h|floatformat:2 }}%
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-6">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body text-center py-3">
+                        <small class="text-muted">24h High</small>
+                        <div class="fw-bold fs-6">${{ asset.price_high_24h|floatformat:2 }}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-6">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body text-center py-3">
+                        <small class="text-muted">24h Low</small>
+                        <div class="fw-bold fs-6">${{ asset.price_low_24h|floatformat:2 }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3">
+        <div class="card border-0 shadow-sm">
+            <div class="card-header p-0">
+                <div class="d-flex">
+                    <button class="btn btn-success flex-fill rounded-0 py-2 active" id="btn-buy">
+                        <i class="bi bi-arrow-down-circle"></i> Buy
+                    </button>
+                    <button class="btn btn-danger flex-fill rounded-0 py-2" id="btn-sell">
+                        <i class="bi bi-arrow-up-circle"></i> Sell
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="d-flex justify-content-between mb-2 small">
+                    <span class="text-muted">Available USD</span>
+                    <span class="fw-semibold">${{ account.cash_balance|floatformat:2 }}</span>
+                </div>
+                <div class="d-flex justify-content-between mb-3 small">
+                    <span class="text-muted">Available {{ asset.code }}</span>
+                    <span class="fw-semibold">{% crypto_balance account asset.code %}</span>
+                </div>
+                <form id="trade-form" hx-post="{% url 'execute_order' asset.code %}" hx-target="#order-result" hx-swap="innerHTML">
+                    {% csrf_token %}
+                    <input type="hidden" name="side" id="side-input" value="BUY">
+                    <div class="mb-3">
+                        <label class="form-label small">Order Type</label>
+                        <select name="order_type" class="form-select" id="order-type-select">
+                            <option value="MARKET">Market</option>
+                            <option value="LIMIT">Limit</option>
+                        </select>
+                    </div>
+                    <div class="mb-3" id="limit-price-group" style="display:none;">
+                        <label class="form-label small">Limit Price (USD)</label>
+                        <input type="number" name="limit_price" step="0.01" class="form-control" placeholder="0.00">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label small">Amount (<span id="amount-label">{{ asset.code }}</span>)</label>
+                        <input type="number" name="amount" step="any" min="0.00000001" class="form-control" placeholder="0.00" id="amount-input">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label small">Est. Total (USD)</label>
+                        <div class="form-control" id="est-total">$0.00</div>
+                    </div>
+                    <button type="submit" class="btn btn-success w-100 py-2 fw-semibold" id="submit-btn">
+                        <i class="bi bi-arrow-down-circle"></i> Buy {{ asset.code }}
+                    </button>
+                </form>
+                <div id="order-result" class="mt-3"></div>
+            </div>
+        </div>
+
+        <div class="card border-0 shadow-sm mt-3">
+            <div class="card-header small"><i class="bi bi-clock-history me-1"></i>Recent Trades</div>
+            <div class="card-body p-0" style="max-height:220px; overflow-y:auto;">
+                <table class="table table-sm mb-0">
+                    <thead><tr><th class="small">Price</th><th class="small">Amount</th><th class="small">Total</th></tr></thead>
+                    <tbody>
+                        {% for o in recent_orders|slice:":15" %}
+                        <tr>
+                            <td class="small text-{% if o.side == 'BUY' %}success{% else %}danger{% endif %}">
+                                ${{ o.price_at_exec|floatformat:2 }}
+                            </td>
+                            <td class="small">{{ o.quantity|floatformat:6 }}</td>
+                            <td class="small">${{ o.total_fiat|floatformat:2 }}</td>
+                        </tr>
+                        {% empty %}
+                        <tr><td colspan="3" class="text-muted text-center small py-3">No trades yet</td></tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+const cryptoPrice = {{ asset.current_price|safe }};
+const chart = LightweightCharts.createChart(document.getElementById('chart-container'), {
+    layout: { textColor: '#848e9c', background: { color: '#0b0e11' } },
+    grid: { vertLines: { color: '#1e2229' }, horzLines: { color: '#1e2229' } },
+    crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+    timeScale: { timeVisible: true, secondsVisible: false, borderColor: '#2b2f36' },
+    rightPriceScale: { borderColor: '#2b2f36' },
+});
+const candleSeries = chart.addSeries(LightweightCharts.CandlestickSeries, {
+    upColor: '#0ecb81', downColor: '#f6465d',
+    borderUpColor: '#0ecb81', borderDownColor: '#f6465d',
+    wickUpColor: '#0ecb81', wickDownColor: '#f6465d',
+});
+
+function loadCandles(days) {
+    document.getElementById('chart-status').textContent = 'Loading...';
+    fetch('/trade/{{ asset.code }}/candlestick-data/?days=' + days)
+        .then(r => r.json())
+        .then(data => {
+            if (data.length && data[0].open !== undefined) {
+                candleSeries.setData(data);
+            } else {
+                document.getElementById('chart-status').textContent = 'Fallback line chart';
+            }
+            chart.timeScale().fitContent();
+            document.getElementById('chart-status').textContent = 'Candlestick — ' + days + 'd';
+        });
+}
+loadCandles(7);
+
+document.querySelectorAll('.chart-range').forEach(btn => {
+    btn.addEventListener('click', function() {
+        document.querySelectorAll('.chart-range').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        loadCandles(this.dataset.days);
+    });
+});
+
+document.getElementById('btn-buy').addEventListener('click', function() {
+    this.classList.add('active'); document.getElementById('btn-sell').classList.remove('active');
+    document.getElementById('side-input').value = 'BUY';
+    const btn = document.getElementById('submit-btn');
+    btn.className = 'btn btn-success w-100 py-2 fw-semibold';
+    btn.innerHTML = '<i class="bi bi-arrow-down-circle"></i> Buy {{ asset.code }}';
+});
+
+document.getElementById('btn-sell').addEventListener('click', function() {
+    this.classList.add('active'); document.getElementById('btn-buy').classList.remove('active');
+    document.getElementById('side-input').value = 'SELL';
+    const btn = document.getElementById('submit-btn');
+    btn.className = 'btn btn-danger w-100 py-2 fw-semibold';
+    btn.innerHTML = '<i class="bi bi-arrow-up-circle"></i> Sell {{ asset.code }}';
+});
+
+document.getElementById('amount-input').addEventListener('input', function() {
+    const val = parseFloat(this.value) || 0;
+    document.getElementById('est-total').textContent = '$' + (val * cryptoPrice).toFixed(2);
+});
+
+document.getElementById('order-type-select').addEventListener('change', function() {
+    document.getElementById('limit-price-group').style.display = this.value === 'LIMIT' ? 'block' : 'none';
+});
+
+window.addEventListener('resize', () => {
+    chart.applyOptions({ width: document.getElementById('chart-container').clientWidth });
+});
+</script>
+{% endblock %}

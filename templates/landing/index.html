@@ -1,0 +1,137 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Next-Gen Finance{% endblock %}
+{% block content %}
+<style>
+.hero-section { min-height: 80vh; display: flex; align-items: center; background: linear-gradient(135deg, var(--bg-primary) 0%, #0d1a15 50%, var(--bg-primary) 100%); position: relative; overflow: hidden; margin: -1rem; padding: 2rem; }
+.hero-section::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle at 30% 50%, rgba(14,203,129,0.04) 0%, transparent 50%), radial-gradient(circle at 70% 50%, rgba(55,91,210,0.03) 0%, transparent 50%); pointer-events: none; }
+.hero-content { position: relative; z-index: 1; }
+.hero-badge { display: inline-block; background: rgba(14,203,129,0.1); border: 1px solid rgba(14,203,129,0.2); color: var(--accent); padding: 0.35rem 1rem; border-radius: 20px; font-size: 0.8rem; margin-bottom: 1.5rem; }
+.landing-feature-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 16px; padding: 1.5rem; transition: all 0.25s ease; height: 100%; }
+.landing-feature-card:hover { transform: translateY(-4px); border-color: rgba(14,203,129,0.3); box-shadow: 0 8px 30px rgba(0,0,0,0.4); }
+.landing-feature-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-bottom: 1rem; }
+.stat-card { text-align: center; padding: 1.5rem; }
+.stat-number { font-size: 2rem; font-weight: 700; color: var(--accent); }
+.stat-label { color: var(--text-secondary); font-size: 0.85rem; }
+.testimonial-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 16px; padding: 1.5rem; }
+.cta-section { background: linear-gradient(135deg, rgba(14,203,129,0.08) 0%, rgba(55,91,210,0.05) 100%); border: 1px solid rgba(14,203,129,0.15); border-radius: 24px; padding: 3rem 2rem; text-align: center; }
+</style>
+
+<div class="hero-section">
+    <div class="row align-items-center hero-content w-100">
+        <div class="col-lg-6">
+            <div class="hero-badge"><i class="bi bi-shield-check me-1"></i> Demo Trading Platform</div>
+            <h1 class="display-4 fw-bold mb-3">Your Assets,<br><span class="text-accent">Fortified with Ironclad Security</span></h1>
+            <p class="text-secondary mb-4 fs-5">Protect your digital wealth with advanced encryption, multi-factor authentication, and vigilant threat monitoring built on a decentralized foundation.</p>
+            <div class="d-flex gap-3 flex-wrap">
+                <a href="{% url 'register' %}" class="btn btn-accent btn-lg px-4 py-2">Start Your Secure Journey</a>
+                <a href="{% url 'login' %}" class="btn btn-outline-accent btn-lg px-4 py-2">Sign In</a>
+            </div>
+        </div>
+        <div class="col-lg-6 d-none d-lg-flex justify-content-center">
+            <div style="width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(14,203,129,0.12) 0%,transparent 70%);display:flex;align-items:center;justify-content:center;">
+                <div style="width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(14,203,129,0.08) 0%,transparent 60%);display:flex;align-items:center;justify-content:center;">
+                    <i class="bi bi-currency-bitcoin" style="font-size:5rem;color:var(--accent);opacity:0.6;"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="py-5">
+    <div class="row g-3 text-center">
+        <div class="col-6 col-lg-3"><div class="stat-card"><div class="stat-number">$1.2B+</div><div class="stat-label">Volume Secured</div></div></div>
+        <div class="col-6 col-lg-3"><div class="stat-card"><div class="stat-number">5M+</div><div class="stat-label">Active Wallets</div></div></div>
+        <div class="col-6 col-lg-3"><div class="stat-card"><div class="stat-number">99.9%</div><div class="stat-label">Uptime Reliability</div></div></div>
+        <div class="col-6 col-lg-3"><div class="stat-card"><div class="stat-number">29+</div><div class="stat-label">Supported Assets</div></div></div>
+    </div>
+</section>
+
+<section class="py-4">
+    <div class="text-center mb-5">
+        <h2 class="fw-bold">Elevate Your Experience</h2>
+        <p class="text-secondary">Discover the unique advantages that make Roavian the secure choice for your digital assets.</p>
+    </div>
+    <div class="row g-4">
+        {% for feat in features %}
+        <div class="col-md-6 col-lg-4">
+            <div class="landing-feature-card">
+                <div class="landing-feature-icon" style="background:{{ feat.bg }};">{{ feat.icon|safe }}</div>
+                <h5 class="fw-semibold">{{ feat.title }}</h5>
+                <p class="text-secondary small mb-0">{{ feat.desc }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<section class="py-4">
+    <div class="text-center mb-5">
+        <h2 class="fw-bold">Getting Started is Simple</h2>
+        <p class="text-secondary">A three-step process to secure and manage your digital assets.</p>
+    </div>
+    <div class="row g-4 justify-content-center">
+        <div class="col-md-4">
+            <div class="landing-feature-card text-center">
+                <div class="landing-feature-icon mx-auto" style="background:rgba(14,203,129,0.1);color:var(--accent);">1</div>
+                <h5 class="fw-semibold">Secure Registration</h5>
+                <p class="text-secondary small">Create your account and start with $10,000 in demo funds.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="landing-feature-card text-center">
+                <div class="landing-feature-icon mx-auto" style="background:rgba(55,91,210,0.1);color:var(--blue);">2</div>
+                <h5 class="fw-semibold">Connect & Trade</h5>
+                <p class="text-secondary small">Connect your wallet, deposit funds, and trade 29+ crypto assets.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="landing-feature-card text-center">
+                <div class="landing-feature-icon mx-auto" style="background:rgba(139,92,246,0.1);color:var(--purple);">3</div>
+                <h5 class="fw-semibold">Manage & Grow</h5>
+                <p class="text-secondary small">Track your portfolio, analyze performance, and refine your strategy.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-4">
+    <div class="text-center mb-5">
+        <h2 class="fw-bold">Trusted by the Community</h2>
+    </div>
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="testimonial-card">
+                <div class="text-accent mb-2"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                <p class="text-secondary small">"The real-time market data integration is a game-changer. I love the clean, professional dashboard."</p>
+                <div class="fw-semibold small">Alex R.</div>
+                <div class="text-muted smaller">Veteran Trader</div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="testimonial-card">
+                <div class="text-accent mb-2"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                <p class="text-secondary small">"Demo trading has never been this smooth. The limit order system and fee structure are very realistic."</p>
+                <div class="fw-semibold small">Sarah K.</div>
+                <div class="text-muted smaller">Portfolio Manager</div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="testimonial-card">
+                <div class="text-accent mb-2"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                <p class="text-secondary small">"Perfect for learning crypto trading without risk. The P&L tracking and charts are excellent."</p>
+                <div class="fw-semibold small">Michael P.</div>
+                <div class="text-muted smaller">Crypto Enthusiast</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-4">
+    <div class="cta-section">
+        <h2 class="fw-bold mb-3">Ready to Build Your Portfolio?</h2>
+        <p class="text-secondary mb-4">Join thousands of users who trust Roavian for secure and realistic demo trading.</p>
+        <a href="{% url 'register' %}" class="btn btn-accent btn-lg px-5 py-2">Get Started Free</a>
+    </div>
+</section>
+{% endblock %}

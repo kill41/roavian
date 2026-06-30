@@ -1,0 +1,56 @@
+<nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container-fluid px-4">
+        <a class="navbar-brand" href="{% url 'dashboard' %}">
+            <i class="bi bi-currency-bitcoin me-2"></i>Roavian
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto gap-1">
+                <li class="nav-item"><a class="nav-link" href="{% url 'dashboard' %}"><i class="bi bi-grid-fill me-1"></i>Dashboard</a></li>
+                {% if user.is_authenticated %}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                        <i class="bi bi-arrow-left-right me-1"></i>Trade
+                    </a>
+                    <ul class="dropdown-menu">
+                        {% for crypto in assets %}
+                        <li><a class="dropdown-item d-flex align-items-center gap-2" href="{% url 'trade' crypto.code %}">
+                            {% if crypto.image_url %}<img src="{{ crypto.image_url }}" alt="" style="width:16px;height:16px;border-radius:50%;">{% endif %}
+                            <span class="fw-semibold">{{ crypto.code }}</span>
+                            <span class="text-muted ms-auto">/ USD</span>
+                        </a></li>
+                        {% endfor %}
+                    </ul>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'wallet_view' %}"><i class="bi bi-wallet-fill me-1"></i>Wallet</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'transactions_view' %}"><i class="bi bi-clock-fill me-1"></i>History</a></li>
+                {% endif %}
+            </ul>
+            <ul class="navbar-nav gap-1">
+                {% if user.is_authenticated %}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle d-flex align-items-center gap-2" href="#" role="button" data-bs-toggle="dropdown">
+                        <span class="avatar-placeholder">{{ user.first_name|first|default:user.email|first|upper }}</span>
+                        <span>{{ user.first_name|default:user.email }}</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="{% url 'profile' %}"><i class="bi bi-person me-2"></i>Profile</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                            <form method="post" action="{% url 'logout' %}" class="d-inline">
+                                {% csrf_token %}
+                                <button type="submit" class="dropdown-item"><i class="bi bi-box-arrow-right me-2"></i>Logout</button>
+                            </form>
+                        </li>
+                    </ul>
+                </li>
+                {% else %}
+                <li class="nav-item"><a class="nav-link" href="{% url 'login' %}"><i class="bi bi-box-arrow-in-right me-1"></i>Login</a></li>
+                <li class="nav-item"><a class="nav-link btn btn-accent text-dark fw-semibold px-3" href="{% url 'register' %}">Get Started</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
