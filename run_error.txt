@@ -1,0 +1,300 @@
+Empty response for batch 0
+Empty response for batch 25
+Empty response for batch 0
+Empty response for batch 25
+[27/Jun/2026 03:11:12] "GET / HTTP/1.1" 302 0
+[27/Jun/2026 03:11:12] "GET /accounts/login/?next=/ HTTP/1.1" 200 3706
+[27/Jun/2026 03:11:17] "POST /accounts/login/?next=/ HTTP/1.1" 200 3721
+[27/Jun/2026 03:11:22] "POST /accounts/login/?next=/ HTTP/1.1" 200 3721
+[27/Jun/2026 03:11:30] "GET / HTTP/1.1" 302 0
+[27/Jun/2026 03:11:30] "GET /accounts/login/?next=/ HTTP/1.1" 200 3706
+[27/Jun/2026 03:11:36] "POST /accounts/login/?next=/ HTTP/1.1" 200 3721
+[27/Jun/2026 03:11:55] "POST /accounts/login/?next=/ HTTP/1.1" 302 0
+[27/Jun/2026 03:11:56] "GET / HTTP/1.1" 200 54736
+[27/Jun/2026 03:11:56] "GET /api/portfolio-data/ HTTP/1.1" 200 88
+[27/Jun/2026 03:12:08] "GET /api/price-ticker/ HTTP/1.1" 200 9802
+[27/Jun/2026 03:12:20] "GET /accounts/wallet/ HTTP/1.1" 200 37119
+[27/Jun/2026 03:12:44] "POST /accounts/wallet/withdrawal/ HTTP/1.1" 302 0
+[27/Jun/2026 03:12:44] "GET /accounts/wallet/ HTTP/1.1" 200 37375
+[27/Jun/2026 03:12:55] "GET /accounts/wallet/transactions/ HTTP/1.1" 200 12094
+[27/Jun/2026 03:12:58] "GET / HTTP/1.1" 200 54736
+[27/Jun/2026 03:12:58] "GET /api/portfolio-data/ HTTP/1.1" 200 88
+[27/Jun/2026 03:13:01] "GET /trade/ETH/ HTTP/1.1" 200 21047
+Bad Request: /trade/ETH/execute/
+[27/Jun/2026 03:13:34] "POST /trade/ETH/execute/ HTTP/1.1" 400 19
+[27/Jun/2026 03:13:41] "GET /accounts/wallet/transactions/ HTTP/1.1" 200 12094
+[27/Jun/2026 03:13:45] "GET / HTTP/1.1" 200 54736
+[27/Jun/2026 03:13:45] "GET /api/portfolio-data/ HTTP/1.1" 200 88
+[27/Jun/2026 03:13:58] "GET /api/price-ticker/ HTTP/1.1" 200 9802
+[27/Jun/2026 03:14:03] "GET /admin/ HTTP/1.1" 200 13251
+[27/Jun/2026 03:14:03] "GET /static/admin/css/base.css HTTP/1.1" 304 0
+[27/Jun/2026 03:14:03] "GET /static/admin/js/theme.js HTTP/1.1" 304 0
+[27/Jun/2026 03:14:03] "GET /static/admin/css/dark_mode.css HTTP/1.1" 304 0
+[27/Jun/2026 03:14:03] "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0
+[27/Jun/2026 03:14:03] "GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+[27/Jun/2026 03:14:03] "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0
+[27/Jun/2026 03:14:03] "GET /static/admin/css/dashboard.css HTTP/1.1" 304 0
+[27/Jun/2026 03:14:03] "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 978
+[27/Jun/2026 03:14:03] "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 593
+[27/Jun/2026 03:14:06] "GET /admin/accounts/transaction/ HTTP/1.1" 200 15747
+[27/Jun/2026 03:14:06] "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 304 0
+[27/Jun/2026 03:14:06] "GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
+[27/Jun/2026 03:14:06] "GET /static/admin/js/core.js HTTP/1.1" 304 0
+[27/Jun/2026 03:14:06] "GET /static/admin/css/changelists.css HTTP/1.1" 304 0
+[27/Jun/2026 03:14:06] "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+[27/Jun/2026 03:14:06] "GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+[27/Jun/2026 03:14:06] "GET /static/admin/js/actions.js HTTP/1.1" 304 0
+[27/Jun/2026 03:14:06] "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 304 0
+[27/Jun/2026 03:14:06] "GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+[27/Jun/2026 03:14:06] "GET /static/admin/js/filters.js HTTP/1.1" 304 0
+[27/Jun/2026 03:14:06] "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[27/Jun/2026 03:14:06] "GET /static/admin/img/search.svg HTTP/1.1" 200 607
+[27/Jun/2026 03:14:06] "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 593
+[27/Jun/2026 03:14:06] "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 200 928
+[27/Jun/2026 03:14:08] "GET /admin/accounts/useraccount/ HTTP/1.1" 200 15078
+[27/Jun/2026 03:14:08] "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[27/Jun/2026 03:14:10] "GET /admin/accounts/userholding/ HTTP/1.1" 200 19230
+[27/Jun/2026 03:14:10] "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[27/Jun/2026 03:14:14] "GET /admin/auth/group/ HTTP/1.1" 200 13572
+[27/Jun/2026 03:14:14] "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[27/Jun/2026 03:14:16] "GET /admin/auth/user/ HTTP/1.1" 200 17198
+[27/Jun/2026 03:14:16] "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[27/Jun/2026 03:14:16] "GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 558
+[27/Jun/2026 03:14:16] "GET /static/admin/img/sorting-icons.svg HTTP/1.1" 200 1761
+[27/Jun/2026 03:14:19] "GET /admin/market/cryptopricehistory/ HTTP/1.1" 200 62470
+[27/Jun/2026 03:14:19] "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[27/Jun/2026 03:14:23] "GET /admin/market/cryptodepositaddress/ HTTP/1.1" 200 30843
+[27/Jun/2026 03:14:23] "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[27/Jun/2026 03:14:23] "GET /static/admin/css/forms.css HTTP/1.1" 304 0
+[27/Jun/2026 03:14:23] "GET /static/admin/css/widgets.css HTTP/1.1" 304 0
+[27/Jun/2026 03:14:30] "GET /admin/market/marketasset/ HTTP/1.1" 200 40038
+[27/Jun/2026 03:14:30] "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[27/Jun/2026 03:14:41] "GET /admin/market/ohlcsnapshot/ HTTP/1.1" 200 16710
+[27/Jun/2026 03:14:41] "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[27/Jun/2026 03:14:51] "GET /admin/accounts/connectedwallet/ HTTP/1.1" 200 14723
+[27/Jun/2026 03:14:51] "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[27/Jun/2026 03:14:53] "GET /admin/accounts/transaction/ HTTP/1.1" 200 15747
+[27/Jun/2026 03:14:53] "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[27/Jun/2026 03:14:55] "GET /admin/accounts/useraccount/ HTTP/1.1" 200 15078
+[27/Jun/2026 03:14:55] "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[27/Jun/2026 03:14:57] "GET /admin/accounts/userholding/ HTTP/1.1" 200 19230
+[27/Jun/2026 03:14:57] "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[27/Jun/2026 03:15:26] "GET /accounts/wallet/ HTTP/1.1" 200 37119
+[27/Jun/2026 03:15:37] "GET /accounts/profile/ HTTP/1.1" 200 15253
+[27/Jun/2026 03:17:02] "POST /accounts/wallet/connect/ HTTP/1.1" 302 0
+[27/Jun/2026 03:17:02] "GET /accounts/profile/ HTTP/1.1" 200 15911
+[27/Jun/2026 03:17:13] "GET /admin/accounts/connectedwallet/ HTTP/1.1" 200 17247
+[27/Jun/2026 03:17:13] "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[27/Jun/2026 03:17:22] "GET /admin/accounts/connectedwallet/1/change/ HTTP/1.1" 200 19927
+[27/Jun/2026 03:17:22] "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[27/Jun/2026 03:17:22] "GET /static/admin/js/calendar.js HTTP/1.1" 304 0
+[27/Jun/2026 03:17:22] "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 304 0
+[27/Jun/2026 03:17:22] "GET /static/admin/js/change_form.js HTTP/1.1" 304 0
+[27/Jun/2026 03:17:22] "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 304 0
+[27/Jun/2026 03:17:22] "GET /static/admin/img/icon-calendar.svg HTTP/1.1" 200 1112
+[27/Jun/2026 03:17:22] "GET /static/admin/img/icon-clock.svg HTTP/1.1" 200 805
+[27/Jun/2026 03:18:25] "POST /admin/accounts/connectedwallet/1/change/ HTTP/1.1" 302 0
+[27/Jun/2026 03:18:25] "GET /admin/accounts/connectedwallet/add/ HTTP/1.1" 200 19697
+[27/Jun/2026 03:18:25] "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[27/Jun/2026 03:18:25] "GET /static/admin/img/icon-yes-dark.svg HTTP/1.1" 200 558
+[27/Jun/2026 03:18:33] "GET /accounts/profile/ HTTP/1.1" 200 15632
+[27/Jun/2026 03:19:03] "GET /accounts/wallet/ HTTP/1.1" 200 37297
+[27/Jun/2026 03:19:40] "GET /admin/market/marketasset/ HTTP/1.1" 200 40037
+[27/Jun/2026 03:19:40] "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[27/Jun/2026 03:19:42] "GET /admin/auth/user/ HTTP/1.1" 200 17198
+[27/Jun/2026 03:19:42] "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[27/Jun/2026 03:19:45] "GET /admin/auth/user/1/change/ HTTP/1.1" 200 35560
+[27/Jun/2026 03:19:45] "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[27/Jun/2026 03:19:45] "GET /static/admin/js/inlines.js HTTP/1.1" 304 0
+[27/Jun/2026 03:19:45] "GET /static/admin/js/SelectBox.js HTTP/1.1" 304 0
+[27/Jun/2026 03:19:45] "GET /static/admin/js/SelectFilter2.js HTTP/1.1" 304 0
+[27/Jun/2026 03:19:45] "GET /static/admin/img/selector-icons.svg HTTP/1.1" 200 2387
+[27/Jun/2026 03:19:48] "GET /admin/accounts/useraccount/ HTTP/1.1" 200 15078
+[27/Jun/2026 03:19:48] "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[27/Jun/2026 03:19:51] "GET /admin/accounts/useraccount/1/change/ HTTP/1.1" 200 31037
+[27/Jun/2026 03:19:51] "GET /static/admin/css/autocomplete.css HTTP/1.1" 200 9185
+[27/Jun/2026 03:19:51] "GET /static/admin/css/vendor/select2/select2.css HTTP/1.1" 200 17358
+[27/Jun/2026 03:19:51] "GET /static/admin/js/vendor/select2/i18n/en.js HTTP/1.1" 200 844
+[27/Jun/2026 03:19:51] "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[27/Jun/2026 03:19:51] "GET /static/admin/js/autocomplete.js HTTP/1.1" 200 1060
+[27/Jun/2026 03:19:51] "GET /static/admin/js/vendor/select2/select2.full.js HTTP/1.1" 200 173566
+[27/Jun/2026 03:19:54] "GET /admin/accounts/transaction/ HTTP/1.1" 200 15747
+[27/Jun/2026 03:19:54] "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[27/Jun/2026 03:20:07] "GET /admin/trading/order/ HTTP/1.1" 200 15778
+[27/Jun/2026 03:20:07] "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[27/Jun/2026 03:20:11] "GET /admin/market/cryptopricehistory/ HTTP/1.1" 200 62644
+[27/Jun/2026 03:20:11] "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[27/Jun/2026 03:20:14] "GET /admin/auth/group/ HTTP/1.1" 200 13572
+[27/Jun/2026 03:20:14] "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[27/Jun/2026 03:20:15] "GET /admin/auth/user/ HTTP/1.1" 200 17198
+[27/Jun/2026 03:20:15] "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[27/Jun/2026 03:20:21] "GET /admin/auth/user/1/change/ HTTP/1.1" 200 35560
+[27/Jun/2026 03:20:21] "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[27/Jun/2026 03:20:24] "GET /admin/accounts/userholding/ HTTP/1.1" 200 19230
+[27/Jun/2026 03:20:24] "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[27/Jun/2026 03:20:29] "GET /admin/accounts/useraccount/ HTTP/1.1" 200 15078
+[27/Jun/2026 03:20:29] "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[27/Jun/2026 03:20:36] "GET /admin/accounts/useraccount/1/change/ HTTP/1.1" 200 31037
+[27/Jun/2026 03:20:36] "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[27/Jun/2026 03:20:45] "GET /admin/accounts/transaction/ HTTP/1.1" 200 15747
+[27/Jun/2026 03:20:45] "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[27/Jun/2026 03:20:53] "POST /accounts/wallet/withdrawal/ HTTP/1.1" 302 0
+[27/Jun/2026 03:20:53] "GET /accounts/wallet/ HTTP/1.1" 200 37553
+[27/Jun/2026 03:20:59] "GET /admin/accounts/useraccount/ HTTP/1.1" 200 15078
+[27/Jun/2026 03:20:59] "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[27/Jun/2026 03:21:00] "GET /admin/accounts/transaction/ HTTP/1.1" 200 15747
+[27/Jun/2026 03:21:00] "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[27/Jun/2026 03:21:02] "GET /admin/accounts/connectedwallet/ HTTP/1.1" 200 17249
+[27/Jun/2026 03:21:02] "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[27/Jun/2026 03:21:03] "GET /admin/accounts/transaction/ HTTP/1.1" 200 15747
+[27/Jun/2026 03:21:03] "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[27/Jun/2026 03:21:05] "GET /admin/accounts/connectedwallet/ HTTP/1.1" 200 17249
+[27/Jun/2026 03:21:05] "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[27/Jun/2026 03:21:07] "GET /admin/accounts/userholding/ HTTP/1.1" 200 19230
+[27/Jun/2026 03:21:07] "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[27/Jun/2026 03:21:08] "GET /admin/accounts/useraccount/ HTTP/1.1" 200 15078
+[27/Jun/2026 03:21:08] "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[27/Jun/2026 03:21:13] "GET /admin/accounts/useraccount/1/change/ HTTP/1.1" 200 31037
+[27/Jun/2026 03:21:13] "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+Error fetching batch 0: HTTPSConnectionPool(host='api.coingecko.com', port=443): Max retries exceeded with url: /api/v3/coins/markets?vs_currency=usd&ids=bitcoin%2Cethereum%2Csolana%2Cripple%2Ccardano%2Cavalanche-2%2Cpolkadot%2Cchainlink%2Cdogecoin%2Cmatic-network%2Cinternet-computer%2Cshiba-inu%2Ccosmos%2Captos%2Cinjective-protocol%2Cthorchain%2Coptimism%2Carbitrum%2Ccelestia%2Csui%2Cfetch-ai%2Cbeam%2Ctether%2Cusd-coin%2Cstellar&order=market_cap_desc&sparkline=false&price_change_percentage=24h (Caused by NameResolutionError("HTTPSConnection(host='api.coingecko.com', port=443): Failed to resolve 'api.coingecko.com' ([Errno 11001] getaddrinfo failed)"))
+Error fetching batch 25: HTTPSConnectionPool(host='api.coingecko.com', port=443): Max retries exceeded with url: /api/v3/coins/markets?vs_currency=usd&ids=near%2Ckaspa%2Chedera-hashgraph&order=market_cap_desc&sparkline=false&price_change_percentage=24h (Caused by NameResolutionError("HTTPSConnection(host='api.coingecko.com', port=443): Failed to resolve 'api.coingecko.com' ([Errno 11001] getaddrinfo failed)"))
+Error saving chainlink: database is locked
+Error saving hedera-hashgraph: database is locked
+Error saving near: database is locked
+Error saving kaspa: database is locked
+Error saving bitcoin: database is locked
+Error saving ethereum: database is locked
+Error saving tether: database is locked
+Error saving usd-coin: database is locked
+Error saving ripple: database is locked
+Error saving solana: database is locked
+Error saving dogecoin: database is locked
+Error saving stellar: database is locked
+Error saving bitcoin: database is locked
+Error saving ethereum: database is locked
+Error saving tether: database is locked
+Error saving usd-coin: database is locked
+Error saving ripple: database is locked
+Error saving solana: database is locked
+Error saving dogecoin: database is locked
+Error saving stellar: database is locked
+Error saving chainlink: database is locked
+Empty response for batch 25
+Error saving tether: database is locked
+Error saving usd-coin: database is locked
+Error saving bitcoin: database is locked
+Error saving ethereum: database is locked
+Empty response for batch 0
+Error fetching batch 0: HTTPSConnectionPool(host='api.coingecko.com', port=443): Max retries exceeded with url: /api/v3/coins/markets?vs_currency=usd&ids=bitcoin%2Cethereum%2Csolana%2Cripple%2Ccardano%2Cavalanche-2%2Cpolkadot%2Cchainlink%2Cdogecoin%2Cmatic-network%2Cinternet-computer%2Cshiba-inu%2Ccosmos%2Captos%2Cinjective-protocol%2Cthorchain%2Coptimism%2Carbitrum%2Ccelestia%2Csui%2Cfetch-ai%2Cbeam%2Ctether%2Cusd-coin%2Cstellar&order=market_cap_desc&sparkline=false&price_change_percentage=24h (Caused by NameResolutionError("HTTPSConnection(host='api.coingecko.com', port=443): Failed to resolve 'api.coingecko.com' ([Errno 11001] getaddrinfo failed)"))
+Error fetching batch 25: HTTPSConnectionPool(host='api.coingecko.com', port=443): Max retries exceeded with url: /api/v3/coins/markets?vs_currency=usd&ids=near%2Ckaspa%2Chedera-hashgraph&order=market_cap_desc&sparkline=false&price_change_percentage=24h (Caused by NameResolutionError("HTTPSConnection(host='api.coingecko.com', port=443): Failed to resolve 'api.coingecko.com' ([Errno 11001] getaddrinfo failed)"))
+Empty response for batch 0
+Empty response for batch 25
+[28/Jun/2026 09:02:09] "GET / HTTP/1.1" 302 0
+[28/Jun/2026 09:02:09] "GET /accounts/login/?next=/ HTTP/1.1" 200 3706
+[28/Jun/2026 09:02:09] "GET /accounts/login/ HTTP/1.1" 200 3706
+[28/Jun/2026 09:02:09] "GET /accounts/register/ HTTP/1.1" 200 4645
+Empty response for batch 0
+[28/Jun/2026 09:14:48] "GET / HTTP/1.1" 302 0
+[28/Jun/2026 09:14:48] "GET /accounts/login/?next=/ HTTP/1.1" 200 3706
+[28/Jun/2026 09:14:48] "GET /accounts/login/ HTTP/1.1" 200 3706
+[28/Jun/2026 09:14:48] "GET /accounts/register/ HTTP/1.1" 200 4645
+[28/Jun/2026 09:14:48] "GET /admin/ HTTP/1.1" 302 0
+[28/Jun/2026 09:14:48] "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4080
+[28/Jun/2026 09:14:48] "GET /static/manifest.json HTTP/1.1" 200 613
+[28/Jun/2026 09:14:48] "GET /static/sw.js HTTP/1.1" 200 599
+[28/Jun/2026 09:14:48] "GET /static/icons/icon-192.svg HTTP/1.1" 200 316
+[28/Jun/2026 09:14:48] "GET /static/icons/icon-512.svg HTTP/1.1" 200 321
+[28/Jun/2026 09:14:48] "GET /static/css/roavian.css HTTP/1.1" 200 7864
+[28/Jun/2026 09:14:49] "GET /accounts/login/ HTTP/1.1" 200 3706
+Forbidden (CSRF cookie not set.): /accounts/login/
+[28/Jun/2026 09:14:49] "POST /accounts/login/ HTTP/1.1" 403 2855
+[28/Jun/2026 09:14:49] "GET / HTTP/1.1" 302 0
+[28/Jun/2026 09:14:49] "GET /accounts/login/?next=/ HTTP/1.1" 200 3706
+[28/Jun/2026 09:14:49] "GET /api/portfolio-data/ HTTP/1.1" 302 0
+[28/Jun/2026 09:14:49] "GET /accounts/login/?next=/api/portfolio-data/ HTTP/1.1" 200 3706
+[28/Jun/2026 09:14:49] "GET /api/price-ticker/ HTTP/1.1" 302 0
+[28/Jun/2026 09:14:49] "GET /accounts/login/?next=/api/price-ticker/ HTTP/1.1" 200 3706
+[28/Jun/2026 09:14:49] "GET /trade/BTC/ HTTP/1.1" 302 0
+[28/Jun/2026 09:14:49] "GET /accounts/login/?next=/trade/BTC/ HTTP/1.1" 200 3706
+[28/Jun/2026 09:14:49] "GET /accounts/wallet/ HTTP/1.1" 302 0
+[28/Jun/2026 09:14:49] "GET /accounts/login/?next=/accounts/wallet/ HTTP/1.1" 200 3706
+[28/Jun/2026 09:14:49] "GET /accounts/profile/ HTTP/1.1" 302 0
+[28/Jun/2026 09:14:49] "GET /accounts/login/?next=/accounts/profile/ HTTP/1.1" 200 3706
+[28/Jun/2026 09:16:37] "GET /accounts/login/ HTTP/1.1" 200 3706
+[28/Jun/2026 09:19:38] "GET / HTTP/1.1" 302 0
+[28/Jun/2026 09:19:38] "GET /accounts/login/?next=/ HTTP/1.1" 200 3706
+[28/Jun/2026 09:19:38] "GET /accounts/login/ HTTP/1.1" 200 3706
+[28/Jun/2026 09:19:40] "POST /accounts/login/ HTTP/1.1" 302 0
+[28/Jun/2026 09:19:40] "GET / HTTP/1.1" 200 54768
+[28/Jun/2026 09:19:40] "GET / HTTP/1.1" 200 54768
+[28/Jun/2026 09:19:40] "GET /api/portfolio-data/ HTTP/1.1" 200 88
+[28/Jun/2026 09:19:40] "GET /trade/BTC/ HTTP/1.1" 200 21050
+[28/Jun/2026 09:19:40] "GET /accounts/wallet/ HTTP/1.1" 200 37297
+[28/Jun/2026 09:19:40] "GET /accounts/profile/ HTTP/1.1" 200 15632
+[28/Jun/2026 09:19:40] "GET /static/manifest.json HTTP/1.1" 200 613
+[28/Jun/2026 09:19:40] "GET /static/sw.js HTTP/1.1" 200 599
+[28/Jun/2026 09:19:40] "GET /static/icons/icon-192.svg HTTP/1.1" 200 316
+[28/Jun/2026 09:19:40] "GET /static/icons/icon-512.svg HTTP/1.1" 200 321
+[28/Jun/2026 09:20:25] "GET / HTTP/1.1" 302 0
+[28/Jun/2026 09:20:25] "GET /accounts/login/?next=/ HTTP/1.1" 200 3706
+Empty response for batch 0
+Empty response for batch 25
+Empty response for batch 0
+Empty response for batch 25
+Empty response for batch 0
+Empty response for batch 25
+Empty response for batch 0
+Empty response for batch 25
+Empty response for batch 0
+Empty response for batch 25
+[28/Jun/2026 09:39:21] "GET / HTTP/1.1" 302 0
+[28/Jun/2026 09:39:21] "GET /accounts/login/?next=/ HTTP/1.1" 200 3706
+[28/Jun/2026 09:39:29] "GET / HTTP/1.1" 302 0
+[28/Jun/2026 09:39:29] "GET /accounts/login/?next=/ HTTP/1.1" 200 3706
+Empty response for batch 25
+Empty response for batch 0
+Empty response for batch 25
+Empty response for batch 25
+Empty response for batch 25
+Empty response for batch 0
+Empty response for batch 25
+[28/Jun/2026 09:52:43] "GET / HTTP/1.1" 200 54770
+[28/Jun/2026 09:52:44] "GET /static/css/roavian.css HTTP/1.1" 200 7864
+[28/Jun/2026 09:52:44] "GET /api/portfolio-data/ HTTP/1.1" 200 88
+[28/Jun/2026 09:52:56] "GET /api/price-ticker/ HTTP/1.1" 200 9836
+Empty response for batch 25
+[28/Jun/2026 09:53:10] "GET /api/price-ticker/ HTTP/1.1" 200 9836
+[28/Jun/2026 09:53:22] "GET /api/price-ticker/ HTTP/1.1" 200 9836
+[28/Jun/2026 09:53:23] "GET /accounts/wallet/ HTTP/1.1" 200 37297
+[28/Jun/2026 09:53:45] "GET /admin/accounts/useraccount/1/change/ HTTP/1.1" 200 31037
+[28/Jun/2026 09:53:45] "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0
+[28/Jun/2026 09:53:45] "GET /static/admin/js/theme.js HTTP/1.1" 304 0
+[28/Jun/2026 09:53:45] "GET /static/admin/js/vendor/select2/select2.full.js HTTP/1.1" 304 0
+[28/Jun/2026 09:53:45] "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 304 0
+[28/Jun/2026 09:53:45] "GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
+[28/Jun/2026 09:53:45] "GET /static/admin/js/vendor/select2/i18n/en.js HTTP/1.1" 304 0
+[28/Jun/2026 09:53:45] "GET /static/admin/js/core.js HTTP/1.1" 304 0
+[28/Jun/2026 09:53:45] "GET /static/admin/js/autocomplete.js HTTP/1.1" 304 0
+[28/Jun/2026 09:53:45] "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+[28/Jun/2026 09:53:45] "GET /static/admin/js/inlines.js HTTP/1.1" 304 0
+[28/Jun/2026 09:53:45] "GET /static/admin/js/actions.js HTTP/1.1" 304 0
+[28/Jun/2026 09:53:45] "GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+[28/Jun/2026 09:53:45] "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[28/Jun/2026 09:53:45] "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 304 0
+[28/Jun/2026 09:53:45] "GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+[28/Jun/2026 09:53:45] "GET /static/admin/js/change_form.js HTTP/1.1" 304 0
+[28/Jun/2026 09:53:45] "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 304 0
+[28/Jun/2026 09:53:45] "GET /static/admin/css/forms.css HTTP/1.1" 304 0
+[28/Jun/2026 09:53:45] "GET /static/admin/css/dark_mode.css HTTP/1.1" 304 0
+[28/Jun/2026 09:53:45] "GET /static/admin/css/base.css HTTP/1.1" 304 0
+[28/Jun/2026 09:53:45] "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0
+[28/Jun/2026 09:53:45] "GET /static/admin/css/vendor/select2/select2.css HTTP/1.1" 304 0
+[28/Jun/2026 09:53:45] "GET /static/admin/css/autocomplete.css HTTP/1.1" 304 0
+[28/Jun/2026 09:53:45] "GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+[28/Jun/2026 09:53:45] "GET /static/admin/css/widgets.css HTTP/1.1" 304 0
+[28/Jun/2026 09:53:45] "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 978
+[28/Jun/2026 09:53:45] "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 593
+[28/Jun/2026 09:53:45] "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 200 928
+[28/Jun/2026 09:55:24] "GET / HTTP/1.1" 302 0
+[28/Jun/2026 09:55:24] "GET /accounts/login/?next=/ HTTP/1.1" 200 3706
+Empty response for batch 0

@@ -1,0 +1,32 @@
+Empty response for batch 0
+Empty response for batch 25
+Error fetching batch 0: HTTPSConnectionPool(host='api.coingecko.com', port=443): Max retries exceeded with url: /api/v3/coins/markets?vs_currency=usd&ids=bitcoin%2Cethereum%2Csolana%2Cripple%2Ccardano%2Cavalanche-2%2Cpolkadot%2Cchainlink%2Cdogecoin%2Cmatic-network%2Cinternet-computer%2Cshiba-inu%2Ccosmos%2Captos%2Cinjective-protocol%2Cthorchain%2Coptimism%2Carbitrum%2Ccelestia%2Csui%2Cfetch-ai%2Cbeam%2Ctether%2Cusd-coin%2Cstellar&order=market_cap_desc&sparkline=false&price_change_percentage=24h (Caused by NameResolutionError("HTTPSConnection(host='api.coingecko.com', port=443): Failed to resolve 'api.coingecko.com' ([Errno 11001] getaddrinfo failed)"))
+Error fetching batch 25: HTTPSConnectionPool(host='api.coingecko.com', port=443): Max retries exceeded with url: /api/v3/coins/markets?vs_currency=usd&ids=near%2Ckaspa%2Chedera-hashgraph&order=market_cap_desc&sparkline=false&price_change_percentage=24h (Caused by NameResolutionError("HTTPSConnection(host='api.coingecko.com', port=443): Failed to resolve 'api.coingecko.com' ([Errno 11001] getaddrinfo failed)"))
+Error fetching batch 0: HTTPSConnectionPool(host='api.coingecko.com', port=443): Max retries exceeded with url: /api/v3/coins/markets?vs_currency=usd&ids=bitcoin%2Cethereum%2Csolana%2Cripple%2Ccardano%2Cavalanche-2%2Cpolkadot%2Cchainlink%2Cdogecoin%2Cmatic-network%2Cinternet-computer%2Cshiba-inu%2Ccosmos%2Captos%2Cinjective-protocol%2Cthorchain%2Coptimism%2Carbitrum%2Ccelestia%2Csui%2Cfetch-ai%2Cbeam%2Ctether%2Cusd-coin%2Cstellar&order=market_cap_desc&sparkline=false&price_change_percentage=24h (Caused by NameResolutionError("HTTPSConnection(host='api.coingecko.com', port=443): Failed to resolve 'api.coingecko.com' ([Errno 11001] getaddrinfo failed)"))
+Error fetching batch 25: HTTPSConnectionPool(host='api.coingecko.com', port=443): Max retries exceeded with url: /api/v3/coins/markets?vs_currency=usd&ids=near%2Ckaspa%2Chedera-hashgraph&order=market_cap_desc&sparkline=false&price_change_percentage=24h (Caused by NameResolutionError("HTTPSConnection(host='api.coingecko.com', port=443): Failed to resolve 'api.coingecko.com' ([Errno 11001] getaddrinfo failed)"))
+Empty response for batch 25
+Empty response for batch 25
+Empty response for batch 25
+Empty response for batch 0
+Empty response for batch 25
+Empty response for batch 0
+Empty response for batch 25
+Empty response for batch 25
+Empty response for batch 0
+Empty response for batch 25
+Empty response for batch 25
+Empty response for batch 0
+Empty response for batch 25
+Empty response for batch 0
+Empty response for batch 0
+Empty response for batch 0
+Empty response for batch 25
+Empty response for batch 0
+Error saving hedera-hashgraph: database is locked
+Error saving near: database is locked
+Error saving kaspa: database is locked
+Empty response for batch 0
+Empty response for batch 25
+Empty response for batch 0
+Empty response for batch 25
+Empty response for batch 25
