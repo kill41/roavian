@@ -12,5 +12,6 @@ urlpatterns = [
     path('wallet/deposit/', views.deposit_request, name='deposit_request'),
     path('wallet/withdrawal/', views.withdrawal_request, name='withdrawal_request'),
     path('wallet/connect/', views.connect_wallet, name='connect_wallet'),
+    path('wallet/remove/', views.remove_wallet, name='remove_wallet'),
     path('wallet/balances/', views.wallet_balances, name='wallet_balances'),
 ]

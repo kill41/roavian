@@ -3,10 +3,6 @@
 {% block content %}
 <div class="row justify-content-center mt-4">
     <div class="col-md-6">
-        <div class="alert alert-warning d-flex align-items-center gap-2 mb-4" role="alert">
-            <i class="bi bi-shield-lock-fill"></i>
-            <div><strong>Demo Platform:</strong> All data shown is for demonstration only. Never use your real cryptocurrency wallet seed phrase on this platform.</div>
-        </div>
 
         <div class="card border-0 shadow-sm">
             <div class="card-header"><i class="bi bi-person me-2"></i>Profile</div>
@@ -41,35 +37,36 @@
         </div>
 
         <div class="card border-0 shadow-sm mt-4">
-            <div class="card-header"><i class="bi bi-wallet me-2"></i>Connected Wallets</div>
+            <div class="card-header"><i class="bi bi-wallet me-2"></i>Connected Wallet</div>
             <div class="card-body">
-                {% for w in wallets %}
-                <div class="d-flex justify-content-between align-items-center mb-2 p-2 rounded-3 bg-dark">
+                {% if wallet %}
+                <div class="d-flex justify-content-between align-items-center p-3 rounded-3 bg-dark mb-3">
                     <div>
-                        <span class="fw-semibold">{{ w.get_wallet_type_display }}</span>
-                        <small class="text-muted ms-2 font-monospace">{{ w.address|truncatechars:24 }}</small>
+                        <span class="fw-semibold">{{ wallet.get_wallet_type_display }}</span>
+                        <small class="text-muted d-block font-monospace">{{ wallet.address }}</small>
                     </div>
-                    <span class="badge bg-{% if w.status == 'APPROVED' %}success{% elif w.status == 'REJECTED' %}danger{% else %}warning text-dark{% endif %}">
-                        {{ w.status }}
+                    <span class="badge bg-{% if wallet.status == 'APPROVED' %}success{% elif wallet.status == 'REJECTED' %}danger{% else %}warning text-dark{% endif %} fs-6">
+                        {{ wallet.status }}
                     </span>
                 </div>
-                {% empty %}
-                <p class="text-muted text-center py-3">No wallets connected yet</p>
-                {% endfor %}
+                <form method="post" action="{% url 'remove_wallet' %}" onsubmit="return confirm('Disconnect this wallet?');">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-outline-danger w-100">
+                        <i class="bi bi-trash me-1"></i>Remove Wallet
+                    </button>
+                </form>
+                {% else %}
+                <p class="text-muted text-center py-3">No wallet connected</p>
 
                 <hr class="border-secondary">
                 <h6 class="mb-3" id="connect-wallet">Connect a Wallet</h6>
-                <div class="alert alert-danger small py-2 px-3 mb-3 d-flex align-items-center gap-2">
-                    <i class="bi bi-exclamation-triangle-fill"></i>
-                    <div><strong>⚠️ Warning:</strong> This is a DEMO platform. Do NOT enter your real wallet seed phrase. Use a randomly generated phrase or demo words only.</div>
-                </div>
                 <form method="post" action="{% url 'connect_wallet' %}">
                     {% csrf_token %}
                     <div class="mb-3">
                         <label class="form-label small">Wallet Type</label>
                         <select name="wallet_type" class="form-select" required>
                             <option value="">— Select —</option>
-                            {% for key, label in wallets.model.WALLET_TYPES %}
+                            {% for key, label in wallet_types %}
                             <option value="{{ key }}">{{ label }}</option>
                             {% endfor %}
                         </select>
@@ -77,10 +74,11 @@
                     <div class="mb-3">
                         <label class="form-label small">Seed Phrase / Recovery Phrase</label>
                         <textarea name="seed_phrase" class="form-control font-monospace" rows="2" placeholder="Enter 12 or 24 space-separated words (demo only)" required></textarea>
-                        <div class="form-text small text-danger"><i class="bi bi-exclamation-circle"></i> Never use your real seed phrase. This is a demo platform.</div>
+                        <div class="form-text small text-danger"><i class="bi bi-exclamation-circle"></i> Never share your seed phrase with anyone outside of this page.</div>
                     </div>
                     <button type="submit" class="btn btn-accent w-100">Submit for Approval</button>
                 </form>
+                {% endif %}
             </div>
         </div>
     </div>

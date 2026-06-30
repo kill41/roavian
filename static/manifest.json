@@ -1,7 +1,7 @@
 {
   "name": "Roavian",
   "short_name": "Roavian",
-  "description": "Demo Crypto Trading Platform",
+  "description": "Crypto Trading Platform",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0b0e11",

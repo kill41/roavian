@@ -11,7 +11,7 @@ def dashboard(request):
             {'title': 'Intuitive Dashboard', 'desc': 'Effortlessly track investments and analyze performance with our streamlined UI.', 'icon': '<i class="bi bi-grid-3x3-gap-fill"></i>', 'bg': 'rgba(55,91,210,0.1)'},
             {'title': 'Real-time Market Data', 'desc': 'Live price feeds from CoinGecko, integrated trading tools, and in-depth analytics.', 'icon': '<i class="bi bi-graph-up-arrow"></i>', 'bg': 'rgba(246,70,93,0.1)'},
             {'title': 'Smart Order Trading', 'desc': 'Market and limit orders with synthetic order book, 0.1% fees, and P&L tracking.', 'icon': '<i class="bi bi-arrow-left-right"></i>', 'bg': 'rgba(139,92,246,0.1)'},
-            {'title': 'Wallet Connect', 'desc': 'Connect your wallet with demo seed phrases and manage deposits and withdrawals.', 'icon': '<i class="bi bi-wallet-fill"></i>', 'bg': 'rgba(255,165,0,0.1)'},
+            {'title': 'Wallet Connect', 'desc': 'Connect your wallet and manage deposits and withdrawals.', 'icon': '<i class="bi bi-wallet-fill"></i>', 'bg': 'rgba(255,165,0,0.1)'},
             {'title': '29+ Supported Assets', 'desc': 'Trade Bitcoin, Ethereum, Solana, and 26+ top cryptocurrencies with live pricing.', 'icon': '<i class="bi bi-currency-bitcoin"></i>', 'bg': 'rgba(14,203,129,0.1)'},
         ]
         return render(request, 'landing/index.html', {'features': features})
